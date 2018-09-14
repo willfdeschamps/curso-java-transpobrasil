@@ -10,7 +10,7 @@ public class MaiorIntInformado {
 		int number1 = Integer.parseInt(keyboard.nextLine());
 		System.out.println("Inform the second number");
 		int number2 = Integer.parseInt(keyboard.nextLine());
-		System.out.printf("The highest number is: %d", Math.max(number1, number2));
+		System.out.printf("The highest number typed was: %d", Math.max(number1, number2));
 		keyboard.close();
 	}
 
