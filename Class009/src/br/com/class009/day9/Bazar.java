@@ -14,7 +14,7 @@ public class Bazar {
 		int qtdPecasVendidas = 0;
 		int qtdMeiasVendidas = 0;
 		int[] qtdVendidaMes = new int[valores.length];
-		int qtdCamisasCamisetas = 0;
+		int[] qtdCamisasCamisetas = new int[valores.length];
 		int[] posicaoMaisVendidoNoMes = new int[valores.length];
 		String[] posicaoMaisVendidoNoMesString = new String[valores.length];
 		int[] maiorVendidoNoMes = new int[valores.length];
@@ -25,7 +25,7 @@ public class Bazar {
 				if(j == 0) {
 					qtdMeiasVendidas += valores[i][j];
 				} else {
-					qtdCamisasCamisetas += valores[i][j];
+					qtdCamisasCamisetas[i] += valores[i][j];
 				}
 				if(maiorVendidoNoMes[i] < valores[i][j]) {
 					maiorVendidoNoMes[i] = valores[i][j];
@@ -52,7 +52,7 @@ public class Bazar {
 		System.out.println("Quantidade de peças vendidas: " + qtdPecasVendidas);
 		System.out.println("Quantidade de meias vendidas: " + qtdMeiasVendidas);
 		System.out.println("Quantidade de peças vendidas mês a mês: " + Arrays.toString(qtdVendidaMes));
-		System.out.println("Quantidade de camisas e camisetas: " + qtdCamisasCamisetas);
+		System.out.println("Quantidade de camisas e camisetas: " + Arrays.toString(qtdCamisasCamisetas));
 		System.out.println("Tipo mais vendido por mês: " + Arrays.toString(posicaoMaisVendidoNoMesString));
 	}
 	
