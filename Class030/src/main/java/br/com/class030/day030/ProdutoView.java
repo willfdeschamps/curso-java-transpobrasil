@@ -15,6 +15,8 @@ public class ProdutoView {
 	ProdutoController controller = new ProdutoController();
 
 	public void carregaMenu(Scanner teclado) {
+		controller.inicializarController();
+		System.out.println("Sistema inicializado, seja bem vindo!");
 		int opcao = 0;
 		do {
 			opcao = leInt(

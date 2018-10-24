@@ -73,4 +73,8 @@ public class ProdutoController {
 		}
 		return resultado;
 	}
+
+	public void inicializarController() {
+		repositorio.criarTabelaProdutos();
+	}
 }

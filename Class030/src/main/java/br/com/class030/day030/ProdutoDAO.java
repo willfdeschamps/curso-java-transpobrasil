@@ -17,7 +17,13 @@ public class ProdutoDAO implements RepositorioProduto {
 	private static final String SQL_ATUALIZAR_PRODUTO = "update produtos set nome = ?, preco = ? where id = ?";
 	private static final String SQL_REMOVER_PRODUTO = "delete from produtos where id = ?";
 	private static final String SQL_CONTAR_PRODUTOS = "select count(*) quantidade from produtos";
-	
+	private static final String SQL_CRIAR_TABELA_PRODUTOS = 
+			"CREATE TABLE produtos\r\n" + 
+			"(\r\n" + 
+			"    id serial NOT NULL primary key,\r\n" + 
+			"    nome varchar(200),\r\n" + 
+			"    preco decimal(10,2) NOT NULL\r\n" + 
+			")";
 	
 	@Override
 	public List<Produto> buscarTodos() {
@@ -136,6 +142,7 @@ public class ProdutoDAO implements RepositorioProduto {
 		}
 	}
 
+	
 	@Override
 	public int contar() {
 		int quantidade = 0;
@@ -181,6 +188,19 @@ public class ProdutoDAO implements RepositorioProduto {
 			cursor.close();
 		}
 		return produto;
+	}
+
+	public void criarTabelaProdutos() {
+		    System.out.println("Iniciando publicação!");
+			try {
+				PreparedStatement command = DatabaseUtils.getConnection().prepareStatement(SQL_CRIAR_TABELA_PRODUTOS);
+				command.execute();
+				command.close();
+				System.out.println("Tabela produtos criada");
+			} catch (SQLException e) {
+				System.out.println("Tabela produtos já criada");
+			} 
+			System.out.println("Fim da publicação!");
 	}
 
 }
